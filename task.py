@@ -6,7 +6,7 @@ from workflow.process import Process
 
 @task
 def run():
-    for data in workitems.Inputs():
+    for data in workitems.Inputs()[0]:
         print(data)
         process = Process(
             data.payload["product"],
