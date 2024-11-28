@@ -1,5 +1,4 @@
-import os
-
+from robocorp import workitems
 from robocorp.tasks import task
 
 from workflow.process import Process
@@ -7,13 +6,14 @@ from workflow.process import Process
 
 @task
 def run():
-    process = Process(
-        "notebook-gamer",
-        "automationdeveloper94@gmail.com",
-        "opqv ezjq kywq vwax",
-        "gabriel_almeida50@yahoo.com.br",
-        "Arquivo de validacoes",
-        "Segue em anexo arquivo de validações",
-        f"{os.getcwd()}/{'notebook-gamer.xlsx'}",
-    )
-    process.start()
+    for data in workitems.Inputs():
+        process = Process(
+            data.payload["product"],
+            data.payload["email"],
+            data.payload["pass"],
+            data.payload["send_to"],
+            data.payload["title"],
+            data.payload["body"],
+            data.payload["file"],
+        )
+        process.start()
