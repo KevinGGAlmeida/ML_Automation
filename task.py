@@ -9,12 +9,12 @@ def run():
     for data in workitems.Inputs():
         print(data.payload)
         process = Process(
-            data["payload"]["product"],
-            data["payload"]["email"],
-            data["payload"]["pass"],
-            data["payload"]["send_to"],
-            data["payload"]["title"],
-            data["payload"]["body"],
-            data["payload"]["file"],
+            data.payload["payload"]["product"],
+            data.payload["payload"]["email"],
+            data.payload["payload"]["pass"],
+            data.payload["payload"]["send_to"],
+            data.payload["payload"]["title"],
+            data.payload["payload"]["body"],
+            data.payload["payload"]["file"],
         )
         process.start()
