@@ -1,0 +1,25 @@
+name: Pre-commit testing
+
+# Evento que irá acionar a pipeline
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download do Repositório
+        uses: actions/checkout@v4       # https://github.com/actions/checkout
+
+      - name: Setup Python
+        uses: actions/setup-python@v5   # https://github.com/actions/setup-python
+        with:
+          python-version: '3.12'
+
+      - name: Install Requirements
+        run:  pip install -r requirements.txt
+
+      - name: Pre-commit run
+        run: pre-commit run --all-files
