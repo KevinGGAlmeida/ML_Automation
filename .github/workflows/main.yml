@@ -21,5 +21,8 @@ jobs:
       - name: Install Requirements
         run:  pip install -r requirements.txt
 
+      - name: Install pre-commit
+        run: sudo apt install pre-commit
+        
       - name: Pre-commit run
         run: pre-commit run --all-files
