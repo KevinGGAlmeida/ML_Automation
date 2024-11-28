@@ -1,8 +1,11 @@
 import os
 
+from robocorp.tasks import task
+
 from workflow.process import Process
 
 
+@task
 def run():
     process = Process(
         "notebook-gamer",
@@ -14,6 +17,3 @@ def run():
         f"{os.getcwd()}/{'notebook-gamer.xlsx'}",
     )
     process.start()
-
-
-run()
