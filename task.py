@@ -7,14 +7,13 @@ from workflow.process import Process
 @task
 def run():
     for data in workitems.Inputs():
-        print(data.payload)
         process = Process(
-            data.payload["product"],
-            data.payload["email"],
-            data.payload["pass"],
-            data.payload["send_to"],
-            data.payload["title"],
-            data.payload["body"],
-            data.payload["file"],
+            data.payload[0]["product"],
+            data.payload[0]["email"],
+            data.payload[0]["pass"],
+            data.payload[0]["send_to"],
+            data.payload[0]["title"],
+            data.payload[0]["body"],
+            data.payload[0]["file"],
         )
         process.start()
