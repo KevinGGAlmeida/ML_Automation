@@ -1,12 +1,25 @@
 import sys
-sys.path.insert(0, '..')
+
+sys.path.insert(0, "..")
 from libraries.request import Request
 from libraries.stmp import Gmail
 
+
 class Process:
-    def __init__(self,product_name,whoami,app_pass,send_to,title,body_msg,file_path):
+    def __init__(
+        self,
+        product_name,
+        whoami,
+        app_pass,
+        send_to,
+        title,
+        body_msg,
+        file_path,
+    ):
         self.request = Request(product_name)
-        self.email = Gmail(whoami,app_pass,send_to,title,body_msg,file_path)
+        self.email = Gmail(
+            whoami, app_pass, send_to, title, body_msg, file_path
+        )
 
     def start(self):
         self.request.get_list_of_products()
